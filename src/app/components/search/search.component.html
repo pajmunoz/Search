@@ -1,0 +1,15 @@
+<h3>Búsqueda</h3>
+
+
+  <mat-form-field>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-optgroup *ngFor="let option of filteredOptions | async" [label]="option.parent">
+        <mat-option *ngFor="let item of option.items" [value]="item.name">
+          <a [href]="item.link" target="_blank">{{ item.name }}</a>
+        </mat-option>
+      </mat-optgroup>
+    </mat-autocomplete>
+  </mat-form-field>
+
+
